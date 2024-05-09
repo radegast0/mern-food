@@ -68,7 +68,7 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
               <FormControl>
                 <Input {...field} className="bg-white" />
               </FormControl>
-              <FormMessage  />
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -82,7 +82,7 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage  />
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -95,7 +95,7 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage  />
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -108,7 +108,7 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
-                <FormMessage  />
+                <FormMessage />
               </FormItem>
             )}
           />
