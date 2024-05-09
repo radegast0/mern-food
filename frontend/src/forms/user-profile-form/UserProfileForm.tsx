@@ -1,5 +1,6 @@
-import LoadingButton from "@/components/LoadingButton";
-import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -9,11 +10,11 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
 import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import LoadingButton from "@/components/LoadingButton";
+import { Button } from "@/components/ui/button";
+import { User } from "@/types";
+import { useEffect } from "react";
 
 const formSchema = z.object({
   email: z.string().optional(),
@@ -23,17 +24,31 @@ const formSchema = z.object({
   country: z.string().min(1, "Country is required"),
 });
 
-type UserFormData = z.infer<typeof formSchema>;
+export type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
+  currentUser: User;
   onSave: (userProfileData: UserFormData) => void;
   isLoading: boolean;
+  title?: string;
+  buttonText?: string;
 };
 
-const UserProfileForm = ({ onSave, isLoading }: Props) => {
+const UserProfileForm = ({
+  onSave,
+  isLoading,
+  currentUser,
+  title = "User Profile",
+  buttonText = "Submit",
+}: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: currentUser,
   });
+
+  useEffect(() => {
+    form.reset(currentUser);
+  }, [currentUser, form]);
 
   return (
     <Form {...form}>
@@ -42,9 +57,9 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
         className="space-y-4 rounded-lg bg-gray-50 md:p-10"
       >
         <div>
-          <h2 className="text-2xl font-bold"> User Profile Form </h2>
+          <h2 className="text-2xl font-bold">{title}</h2>
           <FormDescription>
-            view and change your profile information
+            View and change your profile information here
           </FormDescription>
         </div>
         <FormField
@@ -54,11 +69,12 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input {...field} className="bg-white" />
+                <Input {...field} disabled className="bg-white" />
               </FormControl>
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="name"
@@ -72,13 +88,14 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
             </FormItem>
           )}
         />
+
         <div className="flex flex-col gap-4 md:flex-row">
           <FormField
             control={form.control}
             name="addressLine1"
             render={({ field }) => (
               <FormItem className="flex-1">
-                <FormLabel>Address</FormLabel>
+                <FormLabel>Address Line 1</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
@@ -90,7 +107,7 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
             control={form.control}
             name="city"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex-1">
                 <FormLabel>City</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
@@ -103,7 +120,7 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
             control={form.control}
             name="country"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex-1">
                 <FormLabel>Country</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
@@ -113,12 +130,11 @@ const UserProfileForm = ({ onSave, isLoading }: Props) => {
             )}
           />
         </div>
-
         {isLoading ? (
           <LoadingButton />
         ) : (
           <Button type="submit" className="bg-orange-500">
-            Submit
+            {buttonText}
           </Button>
         )}
       </form>
