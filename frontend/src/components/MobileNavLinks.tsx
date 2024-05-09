@@ -8,7 +8,7 @@ export default function MobileNavLinks() {
     <>
       <Link
         to="/user-profile"
-        className="flex items-center bg-white font-bold hover:text-orange-500"
+        className="flex items-center bg-white font-bold hover:text-purple"
       >
         User Profile
       </Link>

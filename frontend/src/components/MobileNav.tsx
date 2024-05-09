@@ -16,7 +16,7 @@ export default function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu className="text-orange-500" />
+        <Menu className="text-purple" />
       </SheetTrigger>
       <SheetContent className="space-y-3">
         <SheetTitle>
@@ -29,7 +29,7 @@ export default function MobileNav() {
           ) : (
             <Button
               onClick={() => loginWithRedirect()}
-              className="flex-1 bg-orange-500 font-bold"
+              className="flex-1 bg-purple font-bold"
             >
               Log In
             </Button>

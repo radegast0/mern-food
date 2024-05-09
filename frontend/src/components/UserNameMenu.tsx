@@ -15,13 +15,13 @@ export const UserNameMenu = () => {
   console.log("user", user?.email);
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="focus:outline-none flex items-center gap-2 px-3 font-bold hover:text-orange-500">
-        <CircleUserRound className="text-orange-500" />
+      <DropdownMenuTrigger className="focus:outline-none flex items-center gap-2 px-3 font-bold hover:text-purple">
+        <CircleUserRound className="text-purple" />
         {user?.email}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="">
         <DropdownMenuItem>
-          <Link to="/user-profile" className="font-bold hover:text-orange-500">
+          <Link to="/user-profile" className="font-bold hover:text-purple">
             User Profile
           </Link>
         </DropdownMenuItem>
@@ -29,7 +29,7 @@ export const UserNameMenu = () => {
         <DropdownMenuItem>
           <Button
             onClick={() => logout()}
-            className="flex flex-1 bg-orange-500 font-bold"
+            className="flex flex-1 bg-purple font-bold"
           >
             Log Out
           </Button>
