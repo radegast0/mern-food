@@ -1,8 +1,6 @@
 import { Canvas } from "@react-three/fiber";
-import {
-  PresentationControls,
-  Stage,
-} from "@react-three/drei";
+import { Float, PresentationControls, Stage } from "@react-three/drei";
+// @ts-ignore
 import Burger from "./Burger";
 
 export default function Hero() {
@@ -15,13 +13,15 @@ export default function Hero() {
           position: [0, 0.5, 12],
         }}
       >
-        <Stage intensity={1.5} preset="soft">
+        <Stage  intensity={1.5} preset="soft">
           <PresentationControls
             global
             snap
-            polar={[-Math.PI / 15, Math.PI / 36]}
+            polar={[-Math.PI / 15, Math.PI / 12]}
           >
+            <Float floatingRange={[0.12,0.25]}>
             <Burger />
+            </Float>
           </PresentationControls>
         </Stage>
       </Canvas>

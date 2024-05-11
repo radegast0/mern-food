@@ -54,5 +54,3 @@ export default function Burger(props) {
   </group>
   );
 }
-
-useGLTF.preload("../../burger.glb");
