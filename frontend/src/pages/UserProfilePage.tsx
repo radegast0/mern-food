@@ -6,7 +6,14 @@ export default function UserProfilePage() {
   const { updateUser, isLoading: isUpdateLoading } = useUpdateMyUser();
 
   if (isGetLoading) {
-    return <span>Loading...</span>;
+    return (
+      <div className="flex flex-col">
+        <span>Loading...</span>
+        <span>
+          Since I'm using a free plan to render, this might take a while.
+        </span>
+      </div>
+    );
   }
 
   if (!currentUser) {

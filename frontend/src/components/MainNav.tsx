@@ -12,7 +12,7 @@ export default function MainNav() {
         <Button
           onClick={async () => await loginWithRedirect()}
           variant="ghost"
-          className="font-bold hover:bg-white hover:text-purple"
+          className="font-bold hover:bg-white hover:text-slate"
         >
           Log In
         </Button>

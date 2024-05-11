@@ -5,7 +5,7 @@ import Burger from "./Burger";
 
 export default function Hero() {
   return (
-    <div className="flex h-72 w-full touch-none bg-purple sm:h-96 md:h-[486px] lg:h-[642px]">
+    <div className="flex h-72 w-full touch-none bg-slate sm:h-96 md:h-[486px] lg:h-[642px]">
       <Canvas
         shadows
         camera={{

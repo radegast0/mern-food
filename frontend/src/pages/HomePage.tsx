@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-12">
       <div className="-mt-16 flex flex-col gap-5 rounded-lg bg-white py-8 text-center shadow-md">
-        <h1 className="text-2xl font-bold tracking-tight text-purple sm:text-3xl md:text-4xl lg:text-5xl">
+        <h1 className="text-2xl font-bold tracking-tight text-slate sm:text-3xl md:text-4xl lg:text-5xl">
           Tastier Twist on Takeout.
         </h1>
         <span className="lg:text-2xl md:text-xl text-base">Just a click away!</span>
